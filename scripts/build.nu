@@ -1,5 +1,5 @@
 let os = (sys host | get name)
-let target = if $os == "Windows" { "cceleste-wrap.exe" } else { "ccleste-wrap" }
+let target = if $os == "Windows" { "ccleste-wrap.exe" } else { "ccleste-wrap" }
 
 print $"正在为($os)构建，目标为 ./dist/($target)"
 
