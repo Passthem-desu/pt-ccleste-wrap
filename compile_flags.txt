@@ -1,0 +1,3 @@
+-Wall
+# -DCELESTE_P8_FIXEDP
+# -D__cplusplus

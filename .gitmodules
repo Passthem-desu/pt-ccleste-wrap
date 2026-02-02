@@ -1,0 +1,3 @@
+[submodule "libs/ccleste"]
+	path = libs/ccleste
+	url = https://github.com/lemon32767/ccleste.git
