@@ -12,7 +12,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            artifact_name: ccleste-wrap-linux-amd64
+            asset_name: ccleste-wrap
+          - os: windows-latest
+            artifact_name: ccleste-wrap-windows-amd64
+            asset_name: ccleste-wrap.exe
 
     steps:
     - name: Checkout code
@@ -44,10 +50,10 @@ jobs:
       run: nu ./scripts/build.nu
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
-        name: ccleste-wrap-${{ runner.os }}
-        path: dist/
+        name: ${{ matrix.artifact_name }}
+        path: dist/${{ matrix.asset_name }}
         if-no-files-found: error
 
   release:
@@ -66,7 +72,6 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          artifacts/**/ccleste-wrap
-          artifacts/**/ccleste-wrap.exe
+          ./artifacts/**/*
         draft: false
         prerelease: false
