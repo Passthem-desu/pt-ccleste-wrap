@@ -88,7 +88,7 @@ func parseActionData(actionData string) ([]Action, error) {
 	for _, ch := range actionData {
 		switch {
 		case unicode.IsSpace(ch):
-			if currentKeys != 0 { push() }
+			if currentKeys != 0 || currentHold != 0 { push() }
 		case unicode.IsDigit(ch):
 			if currentHold >= 10000 {
 				return nil, fmt.Errorf("操作持续时间太长了，请试着减小操作耗时")
