@@ -1,5 +1,5 @@
-let os = (sys).host.name
-let target = if $os == "windows" { "cceleste-wrap.exe" } else { "ccleste-wrap" }
+let os = (sys host | get name)
+let target = if $os == "Windows" { "cceleste-wrap.exe" } else { "ccleste-wrap" }
 
 mkdir build
 mkdir dist
