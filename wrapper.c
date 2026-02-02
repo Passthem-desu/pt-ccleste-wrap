@@ -3,6 +3,7 @@
 #include "./libs/ccleste/celeste.h"
 #include "./libs/ccleste/tilemap.h"
 #include <stdarg.h>
+#include <stdlib.h>
 #include "bitmap_data.h"
 
 #define check_c(c) if(c < 0 || c >= 16) return
